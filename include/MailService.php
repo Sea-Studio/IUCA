@@ -1,0 +1,175 @@
+<?php
+/**
+ * @copyright © IUCA 及 朝阳热心市民
+ * @license MPL
+ */
+class MailService {
+    /** @var array 邮件配置 */
+    private $config;
+    /** @var \PHPMailer\PHPMailer\PHPMailer 邮件发送实例 */
+    private $mail;
+    /** @var bool 是否启用日志 */
+    private $enableLogging;
+
+    /**
+     * 构造函数
+     * @param array $config 邮件配置
+     * @param bool $enableLogging 是否启用日志
+     */
+    public function __construct(array $config = [], bool $enableLogging = true) {
+        // 加载默认配置
+        $this->config = $config ?: $this->loadDefaultConfig();
+        $this->enableLogging = $enableLogging;
+
+        // 初始化PHPMailer
+        $this->initPHPMailer();
+    }
+
+    /**
+     * 加载默认配置
+     * @return array 配置数组
+     */
+    private function loadDefaultConfig(): array {
+        // 尝试加载配置文件
+        $configFile = __DIR__ . '/email_config.php';
+        if (file_exists($configFile)) {
+            return require $configFile;
+        }
+
+        // 默认配置
+        return [
+            'host' => getenv('SMTP_HOST') ?: '',
+            'port' => getenv('SMTP_PORT') ?: 587,
+            'username' => getenv('SMTP_USERNAME') ?: '',
+            'password' => getenv('SMTP_PASSWORD') ?: '',
+            'encryption' => getenv('SMTP_ENCRYPTION') ?: 'tls',
+            'from_email' => getenv('SMTP_FROM_EMAIL') ?: '',
+            'from_name' => getenv('SMTP_FROM_NAME') ?: 'IUCA'
+        ];
+    }
+
+    /**
+     * 初始化PHPMailer
+     */
+    private function initPHPMailer() {
+        // 引入PHPMailer类
+        require_once __DIR__ . '/phpmailer/PHPMailer.php';
+        require_once __DIR__ . '/phpmailer/SMTP.php';
+        require_once __DIR__ . '/phpmailer/Exception.php';
+
+        $this->mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+
+        // 服务器设置
+        $this->mail->isSMTP();
+        $this->mail->Host = $this->config['host'];
+        $this->mail->Port = $this->config['port'];
+        $this->mail->SMTPSecure = !empty($this->config['encryption']) ? $this->config['encryption'] : '';
+        $this->mail->SMTPAuth = true;
+        $this->mail->Username = $this->config['username'];
+        $this->mail->Password = $this->config['password'];
+
+        // 发件人
+        $fromEmail = !empty($this->config['from_email']) ? $this->config['from_email'] : $this->config['username'];
+        $fromName = !empty($this->config['from_name']) ? $this->config['from_name'] : 'IUCA';
+        $this->mail->setFrom($fromEmail, $fromName);
+
+        // 设置字符集
+        $this->mail->CharSet = 'UTF-8';
+    }
+
+    /**
+     * 发送邮件
+     * @param string $to 收件人邮箱
+     * @param string $subject 邮件主题
+     * @param string $body 邮件内容
+     * @param bool $isHtml 是否为HTML邮件
+     * @param array $attachments 附件列表
+     * @return array ['success' => bool, 'message' => string]
+     */
+    public function send(string $to, string $subject, string $body, bool $isHtml = false, array $attachments = []): array {
+        try {
+            // 检查配置
+            if (empty($this->config['host']) || empty($this->config['username']) || empty($this->config['password'])) {
+                $message = '邮件配置不完整';
+                $this->log('错误: ' . $message);
+                return ['success' => false, 'message' => $message];
+            }
+
+            // 清空之前的收件人
+            $this->mail->clearAddresses();
+
+            // 添加收件人
+            $this->mail->addAddress($to);
+
+            // 添加附件
+            foreach ($attachments as $filePath => $fileName) {
+                if (file_exists($filePath)) {
+                    $this->mail->addAttachment($filePath, $fileName);
+                } else {
+                    $this->log('警告: 附件不存在 - ' . $filePath);
+                }
+            }
+
+            // 设置邮件内容
+            $this->mail->Subject = $subject;
+            $this->mail->Body = $body;
+            $this->mail->isHTML($isHtml);
+
+            // 发送邮件
+            $result = $this->mail->send();
+
+            if ($result) {
+                $message = '邮件发送成功';
+                $this->log('成功: ' . $message . ' - 收件人: ' . $to);
+                return ['success' => true, 'message' => $message];
+            } else {
+                $message = '发送邮件失败: ' . $this->mail->ErrorInfo;
+                $this->log('错误: ' . $message);
+                return ['success' => false, 'message' => $message];
+            }
+        } catch (\Exception $e) {
+            $message = '发送邮件时发生错误: ' . $e->getMessage();
+            $this->log('错误: ' . $message);
+            return ['success' => false, 'message' => $message];
+        }
+    }
+
+    /**
+     * 发送验证码邮件
+     * @param string $email 收件人邮箱
+     * @param string $captcha 验证码
+     * @param int $expireMinutes 验证码有效期（分钟）
+     * @return array ['success' => bool, 'message' => string]
+     */
+    public function sendCaptcha(string $email, string $captcha, int $expireMinutes = 10): array {
+        $subject = 'IUCA - 验证码';
+        $body = "您的验证码是: $captcha\r\n\r\n此验证码有效期为$expireMinutes分钟，请尽快使用。";
+
+        return $this->send($email, $subject, $body, false);
+    }
+
+    /**
+     * 记录日志
+     * @param string $message 日志消息
+     */
+    private function log(string $message) {
+        if (!$this->enableLogging) {
+            return;
+        }
+
+        // 确保日志目录存在
+        $logDir = dirname(__DIR__) . '/logs';
+        if (!is_dir($logDir)) {
+            mkdir($logDir, 0755, true);
+        }
+
+        // 日志文件路径
+        $logFile = $logDir . '/mail_' . date('Y-m-d') . '.log';
+
+        // 记录日志
+        $timestamp = date('Y-m-d H:i:s');
+        $logMessage = "[$timestamp] $message\n";
+        file_put_contents($logFile, $logMessage, FILE_APPEND);
+    }
+}
+?>

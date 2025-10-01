@@ -1,0 +1,328 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 标题样式 */
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 22px;
+    margin-top: 30px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 表单样式 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="file"] {
+    padding: 8px;
+}
+
+button,
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* 警告框样式 */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.alert-warning {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+    border: 1px solid #faebcc;
+}
+
+.alert-error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+/* 查询结果样式 */
+.search-results {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.result-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.result-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.result-status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status-normal {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.status-danger {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+.status-warning {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+}
+
+.status-info {
+    background-color: #d9edf7;
+    color: #31708f;
+}
+
+/* 相关IDC状态样式 */
+.related-idc-status {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.related-idc-status .status-normal {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+.related-idc-status .status-warning {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+/* 表格样式 */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+.table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* 标签样式 */
+.tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 3px 8px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* 登录页面样式 */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 页脚样式 */
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* 按钮组 */
+.btn-group {
+    margin-top: 20px;
+}
+
+/* 上传区域 */
+.upload-area {
+    border: 2px dashed #ddd;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* 验证码区域 */
+.captcha-group {
+    display: flex;
+    gap: 10px;
+}
+
+.captcha-input {
+    flex: 1;
+}
+
+.captcha-btn {
+    white-space: nowrap;
+}
+
+/* Logo预览 */
+.logo-preview {
+    max-width: 200px;
+    max-height: 100px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+}
