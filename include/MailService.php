@@ -1,8 +1,12 @@
 <?php
 /**
  * @copyright © IUCA 及 朝阳热心市民
- * @license MPL
+ * @copyright © 瀚海云创IDC信息查询平台 及 瀚海云科技
+ * 
+ * 此源代码的使用受MPL 2.0许可证的约束。
+ * 许可证的完整文本可以在 https://www.mozilla.org/en-US/MPL/2.0/ 找到。
  */
+ 
 class MailService {
     /** @var array 邮件配置 */
     private $config;
@@ -44,7 +48,7 @@ class MailService {
             'password' => getenv('SMTP_PASSWORD') ?: '',
             'encryption' => getenv('SMTP_ENCRYPTION') ?: 'tls',
             'from_email' => getenv('SMTP_FROM_EMAIL') ?: '',
-            'from_name' => getenv('SMTP_FROM_NAME') ?: 'IUCA'
+            'from_name' => getenv('SMTP_FROM_NAME') ?: '瀚海云创IDC查询'
         ];
     }
 
@@ -70,7 +74,7 @@ class MailService {
 
         // 发件人
         $fromEmail = !empty($this->config['from_email']) ? $this->config['from_email'] : $this->config['username'];
-        $fromName = !empty($this->config['from_name']) ? $this->config['from_name'] : 'IUCA';
+        $fromName = !empty($this->config['from_name']) ? $this->config['from_name'] : '瀚海云创IDC查询';
         $this->mail->setFrom($fromEmail, $fromName);
 
         // 设置字符集
@@ -142,7 +146,7 @@ class MailService {
      * @return array ['success' => bool, 'message' => string]
      */
     public function sendCaptcha(string $email, string $captcha, int $expireMinutes = 10): array {
-        $subject = 'IUCA - 验证码';
+        $subject = '瀚海云创IDC查询 - 验证码';
         $body = "您的验证码是: $captcha\r\n\r\n此验证码有效期为$expireMinutes分钟，请尽快使用。";
 
         return $this->send($email, $subject, $body, false);

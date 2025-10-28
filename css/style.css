@@ -10,7 +10,7 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f5f5f5;
-    padding: 20px;
+    padding: 0;
 }
 
 .container {
@@ -20,6 +20,158 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* 导航栏样式 */
+.navbar {
+    background-color: #2c3e50;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1rem 0;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-left: 1.5rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 0.8rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: block;
+}
+
+.nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.nav-link.active {
+    background-color: #3498db;
+}
+
+/* 页脚样式 */
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 2rem 0 1rem;
+    margin-top: 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 1.5rem;
+    padding: 0 15px;
+}
+
+.footer-section h3 {
+    color: #3498db;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #34495e;
+    padding-bottom: 0.5rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #3498db;
+}
+
+.friend-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.friend-link {
+    background: #34495e;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid #4a6278;
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.friend-link:hover {
+    background: #3498db;
+    border-color: #3498db;
+    transform: translateY(-1px);
+}
+
+.icp-info {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #34495e;
+    color: #95a5a6;
+    font-size: 0.9rem;
+}
+
+.icp-info a {
+    color: #bdc3c7;
+    text-decoration: none;
+}
+
+.icp-info a:hover {
+    color: #3498db;
 }
 
 /* 标题样式 */
@@ -234,6 +386,41 @@ button,
 @media (max-width: 768px) {
     .container {
         padding: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .navbar-container {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    .navbar-nav {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-item {
+        margin: 0.3rem;
+    }
+
+    .nav-link {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .friend-links {
+        justify-content: center;
     }
 
     h1 {
@@ -279,14 +466,6 @@ button,
 .login-title {
     text-align: center;
     margin-bottom: 30px;
-}
-
-/* 页脚样式 */
-.footer {
-    margin-top: 50px;
-    text-align: center;
-    color: #7f8c8d;
-    font-size: 14px;
 }
 
 /* 按钮组 */
