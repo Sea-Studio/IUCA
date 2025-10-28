@@ -58,54 +58,54 @@
 ## 文件结构
 瀚海云创IDC查询平台/
 ├── 前端页面/
-│ ├── index.php # 系统首页
-│ ├── blacklist.php # 黑名单查询页面
-│ ├── register.php # IDC注册页面
-│ ├── edit.php # 信息修改页面
-│ └── install.php # 系统安装页面
+│   ├── index.php           # 系统首页
+│   ├── blacklist.php       # 黑名单查询页面
+│   ├── register.php        # IDC注册页面
+│   ├── edit.php           # 信息修改页面
+│   └── install.php        # 系统安装页面
 ├── 后台管理/
-│ ├── login.php # 后台登录
-│ ├── index.php # 后台首页
-│ ├── idc_manage.php # IDC信息管理
-│ ├── blacklist_manage.php # 黑名单管理
-│ ├── user_manage.php # 用户管理
-│ └── system_settings.php # 系统设置
+│   ├── login.php          # 后台登录
+│   ├── index.php          # 后台首页
+│   ├── idc_manage.php     # IDC信息管理
+│   ├── blacklist_manage.php # 黑名单管理
+│   ├── user_manage.php    # 用户管理
+│   └── system_settings.php # 系统设置
 ├── 核心功能/
-│ ├── db.php # 数据库连接
-│ ├── functions.php # 通用工具函数
-│ ├── blacklist_functions.php # 黑名单功能函数
-│ ├── init_db.php # 数据库初始化
-│ ├── header.php # 通用页头模板
-│ ├── footer.php # 通用页脚模板
-│ ├── EmailService.php # 邮件服务类
-│ ├── MailService.php # 邮件发送类
-│ ├── send_captcha.php # 验证码发送接口
-│ ├── demo_mode.php # 演示模式配置
-│ ├── demo_db_reset.php # 数据库重置功能
-│ ├── mysql_config.php # 数据库配置文件
-│ ├── email_config.php # 邮箱配置文件
-│ └── dome.sql # 数据库结构文件
+│   ├── db.php             # 数据库连接
+│   ├── functions.php      # 通用工具函数
+│   ├── blacklist_functions.php # 黑名单功能函数
+│   ├── init_db.php        # 数据库初始化
+│   ├── header.php         # 通用页头模板
+│   ├── footer.php         # 通用页脚模板
+│   ├── EmailService.php   # 邮件服务类
+│   ├── MailService.php    # 邮件发送类
+│   ├── send_captcha.php   # 验证码发送接口
+│   ├── demo_mode.php      # 演示模式配置
+│   ├── demo_db_reset.php  # 数据库重置功能
+│   ├── mysql_config.php   # 数据库配置文件
+│   ├── email_config.php   # 邮箱配置文件
+│   └── dome.sql          # 数据库结构文件
 ├── 静态资源/
-│ ├── css/
-│ │ └── style.css # 主样式表
-│ ├── js/
-│ │ └── main.js # 主JavaScript文件
-│ └── images/
-│ ├── gray_v.svg # 未认证图标
-│ ├── orange_v.svg # 普通认证图标
-│ ├── red_v.svg # 高级认证图标
-│ ├── blue_v.svg # 企业认证图标
-│ └── [其他图片资源]
+│   ├── css/
+│   │   └── style.css      # 主样式表
+│   ├── js/
+│   │   └── main.js        # 主JavaScript文件
+│   └── images/
+│       ├── gray_v.svg     # 未认证图标
+│       ├── orange_v.svg   # 普通认证图标
+│       ├── red_v.svg      # 高级认证图标
+│       ├── blue_v.svg     # 企业认证图标
+│       └── [其他图片资源]
 ├── 演示站专用/
-│ ├── demo_reset.php # 演示站重置脚本
-│ ├── scripts/
-│ │ ├── demo_reset.sh # 自动重置脚本
-│ │ └── monitor_demo.sh # 监控脚本
-│ └── logs/
-│ └── [运行日志文件]
+│   ├── demo_reset.php     # 演示站重置脚本
+│   ├── scripts/
+│   │   ├── demo_reset.sh  # 自动重置脚本
+│   │   └── monitor_demo.sh # 监控脚本
+│   └── logs/
+│       └── [运行日志文件]
 └── 配置文件示例/
-├── mysql_config.php.example # 数据库配置示例
-└── email_config.php.example # 邮箱配置示例
+    ├── mysql_config.php.example  # 数据库配置示例
+    └── email_config.php.example  # 邮箱配置示例
 
 ## 核心功能模块
 
