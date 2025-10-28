@@ -31,9 +31,9 @@
                 <div class="footer-section">
                     <h3>联系我们</h3>
                     <ul class="footer-links">
-                        <li>邮箱：admin@sea-studio.top</li>
-                        <li>QQ群：872640231</li>
-                        <!--<li>Telegram：@hanhaiidc</li>-->
+                        <li>邮箱：admin@example</li>
+                        <li>QQ群：123456789</li>
+                        <li>Telegram：@example_iuca</li>
                     </ul>
                 </div>
             </div>
@@ -41,7 +41,7 @@
             <div class="icp-info">
                 <p>
                     © 2025 瀚海云创IDC信息查询平台 & IUCA 版权所有 
-                    | <a href="https://beian.miit.gov.cn/" target="_blank">滇ICP备2025067641号-1</a>
+                    | <a href="https://beian.miit.gov.cn/" target="_blank">滇ICP备123456789号-1</a>
                     | 遵循 MPL 开源协议
                 </p>
             </div>

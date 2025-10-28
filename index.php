@@ -7,12 +7,12 @@
  * @license MPL
  */
 
-$page_title = '瀚海云创IDC查询';
+$page_title = '您的查询平台名称';
 require_once 'include/header.php';
 ?>
 
 <div class="container">
-    <h1>瀚海云创IDC信息查询平台</h1>
+    <h1>您的查询平台名称</h1>
     
     <!-- 查询表单 -->
     <div class="search-form">

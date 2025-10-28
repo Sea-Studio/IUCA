@@ -5,7 +5,7 @@
  * @license MPL
  */
 
-$page_title = '修改IDC信息 - 瀚海云创IDC查询';
+$page_title = '修改IDC信息 - 您的查询平台名称';
 require_once 'include/header.php';
 
 // 包含工具函数

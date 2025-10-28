@@ -5,7 +5,7 @@
  * @license MPL
  */
 
-$page_title = 'IDC注册 - 瀚海云创IDC查询';
+$page_title = 'IDC注册 - 您的查询平台名称';
 require_once 'include/header.php';
 
 // 包含验证码生成和邮件发送功能

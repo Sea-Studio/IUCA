@@ -36,7 +36,7 @@ if (isset($_POST['test_contact'])) {
     }
 }
 
-$page_title = '黑名单查询 - 瀚海云创IDC查询';
+$page_title = '黑名单查询 - 您的查询平台名称';
 require_once 'include/header.php';
 ?>
 

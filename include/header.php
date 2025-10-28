@@ -13,14 +13,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($page_title) ? $page_title : '瀚海云创IDC查询'; ?></title>
+    <title><?php echo isset($page_title) ? $page_title : '您的查询平台名称'; ?></title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="index.php" class="navbar-brand">瀚海云创IDC查询</a>
+            <a href="index.php" class="navbar-brand">您的查询平台名称</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a href="index.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">首页</a>
